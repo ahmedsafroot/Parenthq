@@ -11,7 +11,7 @@ class ParenthqController extends Controller
     use GeneralTrait;
     //
     
-    public function users_v1(Request $request)
+    public function users(Request $request)
     {
         $providers=array(
             array(
@@ -26,7 +26,7 @@ class ParenthqController extends Controller
                     "name"=>"DataProviderY",
                     "status_column"=>'status',
                     'balance_column'=>'balance',
-                    'currency_column'=>'Currency',
+                    'currency_column'=>'currency',
                     "StautsCode"=>array("authorised"=>100,"decline"=>200,"refunded"=>300),
                     "data"=>''
                  )
@@ -42,7 +42,7 @@ class ParenthqController extends Controller
 
         if(isset($request->provider) && !in_array($request->provider, array_column($providers, 'name')))
         {
-            return $this->returnErrorMessage(404,"this Provider Not Found");
+            return $this->returnErrorMessage(400,"this Provider Not Found");
         }
         elseif(isset($request->provider))
         {

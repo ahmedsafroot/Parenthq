@@ -8,10 +8,8 @@ Trait GeneralTrait
     {
         return response()->json([
             'status'=>false,
-            'msg'=>$msg,
-            'errNum'=>$errNum
-             
-        ]);
+            'msg'=>$msg,             
+        ],$errNum);
     }
     public function returnData($key,$value,$msg="")
     {
@@ -19,6 +17,6 @@ Trait GeneralTrait
             'status'=>true,
             'msg'=>$msg,
             'data'=>[$key=>$value]
-        ]);
+         ],200);
     }
 }

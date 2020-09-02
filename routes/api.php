@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(['namespace' => 'Api'], function () {
-    Route::get('v1/users', "ParenthqController@users_v1");
+    Route::get('v1/users', "ParenthqController@users");
 });
 
 
